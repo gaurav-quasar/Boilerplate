@@ -2,20 +2,20 @@ import React, { Component } from 'react';
 import { Route, withRouter, Switch } from 'react-router-dom';
 
 import HeaderItem from 'header_item';
-import SP1 from 'sp1';
-import SP2 from 'sp2';
+import SRContent1 from 'sr_content_1';
+import SRContent2 from 'sr_content_2';
 
 const tabs = {
-  sp1: {
+  sr1: {
     label: 'Sample Route 1',
-    to: '/sp1',
-    key: 'sp1',
+    to: '/sr1',
+    key: 'sr1',
     icon: 'fa-star'
   },
-  sp2: {
+  sr2: {
     label: 'Sample Route 2',
-    to: '/sp2',
-    key: 'sp2',
+    to: '/sr2',
+    key: 'sr2',
     icon: 'fa-code'
   }
 };
@@ -31,13 +31,13 @@ class Header extends Component {
   constructor(props) {
     super(props);
     const selectedTab = props.location.pathname.replace(/\//g, '');
-    this.state = { selectedTab: tabs[selectedTab] ? tabs[selectedTab].key : tabs.sp1.key };
+    this.state = { selectedTab: tabs[selectedTab] ? tabs[selectedTab].key : tabs.sr1.key };
   }
 
   componentWillReceiveProps(newProps) {
     if (this.props.location.pathname !== newProps.location.pathname) {
       const selectedTab = newProps.location.pathname.replace(/\//g, '');
-      this.setState({ selectedTab: tabs[selectedTab] ? tabs[selectedTab].key : tabs.sp1.key });
+      this.setState({ selectedTab: tabs[selectedTab] ? tabs[selectedTab].key : tabs.sr1.key });
     }
   }
 
@@ -73,9 +73,9 @@ class Header extends Component {
           </div>
         </div>
         <Switch>
-          <Route path="/" exact component={SP1} />
-          <Route path="/sp1" component={SP1} />
-          <Route path="/sp2" component={SP2} />
+          <Route path="/" exact component={SRContent1} />
+          <Route path="/sr1" component={SRContent1} />
+          <Route path="/sr2" component={SRContent2} />
           <Route component={NoMatch} />
         </Switch>
       </div>
