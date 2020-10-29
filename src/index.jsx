@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import 'app_style';
 // import 'bootstrap.min';
 
-import configureStore from 'configure_store';
 import App from './app';
 
 console.warn(process.env.NODE_ENV);
@@ -17,6 +16,4 @@ if (process.env.NODE_ENV === 'production') {
   module.hot.accept();
 }
 
-const store = configureStore();
-
-ReactDOM.render(<App store={store} />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
